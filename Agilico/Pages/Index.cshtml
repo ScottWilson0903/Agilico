@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Lottery Generator";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Agilico Lottery Generator</h1>
+    <form method="post">
+        <label asp-for="IsBonus"></label>
+        <input asp-for="IsBonus">
+        <br />
+        <button type="submit" class="btn btn-primary" name="generate">Generate!</button>
+    </form>
+    <br />
+    @{
+        for (var i = 0; i < (Model.IsBonus ? 7 : 6); i++)
+        {
+            <p class="lottery @ViewData["bg"+i]">@ViewData["number"+i]</p>
+        }
+    }
+</div>
